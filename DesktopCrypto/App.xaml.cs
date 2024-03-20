@@ -1,9 +1,11 @@
 ﻿using DesktopCrypto.Services;
+using DesktopCrypto.Services.Abstract;
 using DesktopCrypto.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
 using System.Data;
 using System.Globalization;
+using System.Net.Http;
 using System.Windows;
 
 namespace DesktopCrypto
@@ -13,6 +15,7 @@ namespace DesktopCrypto
     /// </summary>
     public partial class App : Application
     {
+        //private static readonly HttpClient httpClient = new HttpClient();
         public App()
         {
             Services = ConfigureServices();
@@ -40,6 +43,8 @@ namespace DesktopCrypto
             services.AddSingleton<LocalizationService>();
             services.AddSingleton<AppConfig>();
             services.AddSingleton<MainVM>();
+            services.AddSingleton<HttpClient>();
+            services.AddSingleton<ICryptoService, CryptoService>();
 
             return services.BuildServiceProvider();
         }

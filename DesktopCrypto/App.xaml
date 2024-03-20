@@ -5,6 +5,13 @@
              xmlns:src="clr-namespace:DesktopCrypto.Convertors"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <src:EnumToCollectionConverter x:Key="enumToCollectionConverter"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/AdonisUI;component/ColorSchemes/Light.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Resources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <src:EnumToCollectionConverter x:Key="enumToCollectionConverter"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

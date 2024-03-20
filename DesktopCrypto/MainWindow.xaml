@@ -4,15 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopCrypto"
-        
         xmlns:vm="clr-namespace:DesktopCrypto.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Loaded="MainWindow_Loaded" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
         <vm:MainVM/>
     </Window.DataContext>
+    <Window.Style>
+        <Style TargetType="Window" BasedOn="{StaticResource {x:Type Window}}"/>
+    </Window.Style>
     <Grid>
         <StackPanel>
+            <ToolBar/>
+            <TextBlock>asfdasd</TextBlock>
+            <TextBox/>
+            <RibbonButton Content="asdasd"/>
+            <Calendar/>
+            <Button Content="Темная тема" Command="{Binding SetDarkCommand}"/>
+            <ToggleButton Content="Тонгл"/>
             <ComboBox
  VerticalAlignment="Top"
  Padding="5"
@@ -24,10 +33,15 @@
 IsTabStop="False">
             </ComboBox>
             <TextBlock Text="{Binding Localization.HellowText}" />
-        </StackPanel>
-        <!-- Используйте DynamicResource или StaticResource вместо x:Static -->
-        
+            <ItemsControl ItemsSource="{Binding Coins}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Name}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
+        </StackPanel>
     </Grid>
 </Window>
 
