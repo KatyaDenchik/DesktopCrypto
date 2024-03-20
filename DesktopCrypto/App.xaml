@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:DesktopCrypto" 
              xmlns:src="clr-namespace:DesktopCrypto.Convertors"
+              xmlns:ui="http://schemas.modernwpf.com/2019"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/AdonisUI;component/ColorSchemes/Light.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Resources.xaml"/>
+                <ui:ThemeResources />
+                <ui:XamlControlsResources />
             </ResourceDictionary.MergedDictionaries>
 
             <src:EnumToCollectionConverter x:Key="enumToCollectionConverter"/>

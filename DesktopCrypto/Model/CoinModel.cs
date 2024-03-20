@@ -1,12 +1,17 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using DesktopCrypto.CustomControls;
+using DesktopCrypto.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace DesktopCrypto.Model
 {
-    public class CoinModel
+    public partial class CoinModel : ObservableObject
     {
         public string Id { get; set; }
         public int CoinId { get; set; }
@@ -20,6 +25,12 @@ namespace DesktopCrypto.Model
         public double PriceBTC { get; set; }
         public double Score { get; set; }
         public CoinData Data { get; set; }
+
+        [RelayCommand]
+        private void ShowDetails(MainPage page)
+        {
+            page.NavigationService.Navigate(new CoinInfoPage());
+        }
     }
 
     public class CoinData

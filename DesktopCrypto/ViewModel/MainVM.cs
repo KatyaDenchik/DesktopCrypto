@@ -1,11 +1,11 @@
-﻿using AdonisUI;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DesktopCrypto.Enums;
 using DesktopCrypto.Localizations;
 using DesktopCrypto.Model;
 using DesktopCrypto.Services;
 using DesktopCrypto.Services.Abstract;
+using ModernWpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace DesktopCrypto.ViewModel
 {
@@ -58,12 +59,14 @@ namespace DesktopCrypto.ViewModel
             if (isDark)
             {
                 isDark = !isDark;
-                ResourceLocator.SetColorScheme(Application.Current.Resources, ResourceLocator.LightColorScheme);
+                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
+                ThemeManager.Current.AccentColor = Colors.AliceBlue;
             }
             else
             {
                 isDark = !isDark;
-                ResourceLocator.SetColorScheme(Application.Current.Resources, ResourceLocator.DarkColorScheme);
+                ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
+                ThemeManager.Current.AccentColor = Colors.Green;
             }
         }
         public async Task LoadDataAsync()

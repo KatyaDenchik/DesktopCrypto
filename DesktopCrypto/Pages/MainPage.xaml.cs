@@ -1,9 +1,10 @@
-﻿using DesktopCrypto.Model;
-using DesktopCrypto.Pages;
-using DesktopCrypto.ViewModel;
+﻿using DesktopCrypto.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
-using System.Net.Http;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,17 +15,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DesktopCrypto
+namespace DesktopCrypto.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainPage : Page
     {
-        public MainWindow()
+        public MainPage()
         {
             InitializeComponent();
-            MainFrame.Content = new MainPage();
+            DataContext = App.Current.Services.GetService<MainVM>();
         }
     }
 }
